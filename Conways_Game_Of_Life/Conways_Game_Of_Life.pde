@@ -72,6 +72,7 @@ void mousePressed() {
   if (!running) {
     beingDragged = true;
     dragState = cells[(mouseX)/cellSize][(mouseY)/cellSize].state;
+    cells[(mouseX)/cellSize][(mouseY)/cellSize].flipState(!dragState);
   }
 }
 

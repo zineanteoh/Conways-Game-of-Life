@@ -64,4 +64,8 @@ class Cell {
   void flipState() {
     state = !state;
   } 
+  
+  void flipState(boolean newState) {
+    state = newState;
+  }
 }

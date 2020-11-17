@@ -1,10 +1,11 @@
 // Conway's Game of Life LIMITED BOARD
 
 /*
-Press SPACE to RUN / STOP simulation
-Press 'R' to Randomize Board
-Press UP to increase speed
-Press DOWN to decrease speed
+ Press SPACE to RUN / STOP simulation
+ Press 'R' to Randomize Board
+ Press 'E' to Erase Board
+ Press UP to increase speed
+ Press DOWN to decrease speed
 */
 
 // board setup
@@ -16,6 +17,10 @@ Cell[][] cells;
 boolean running = false;
 int timer;
 int waitDuration = 200;
+
+// variable for dragging & filling
+boolean dragState = false;
+boolean beingDragged = false;
 
 void setup() {
   size(1080, 720);
@@ -65,8 +70,22 @@ void draw() {
 
 void mousePressed() {
   if (!running) {
-    cells[(mouseX)/cellSize][(mouseY)/cellSize].flipState();
+    beingDragged = true;
+    dragState = cells[(mouseX)/cellSize][(mouseY)/cellSize].state;
   }
+}
+
+void mouseDragged() {
+  if (!running && beingDragged) {
+    if (mouseX < 0 || mouseX > width || mouseY < 0 || mouseY > height) {
+      return;
+    }
+    cells[(mouseX)/cellSize][(mouseY)/cellSize].flipState(!dragState);
+  }
+}
+
+void mouseReleased() {
+  beingDragged = false;
 }
 
 void keyPressed() {
@@ -74,6 +93,8 @@ void keyPressed() {
     running = !running;
   } else if (key == 'r') {
     randomBoard();
+  } else if (key == 'e') {
+    clearBoard();
   } else if (keyCode == UP) {
     if (waitDuration > 50) {
       waitDuration -= 50;
@@ -88,10 +109,19 @@ void keyPressed() {
 void randomBoard() {
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j++) {
-      int rand = int(random(0,2));
+      int rand = int(random(0, 2));
       if (rand == 1) {
         cells[i][j].flipState();
       }
     }
   }
+}
+
+void clearBoard() {
+  for (int i = 0; i < row; i++) {
+    for (int j = 0; j < col; j++) {
+      cells[i][j].flipState(false);
+    }
+  }
+  timer = 0;
 }

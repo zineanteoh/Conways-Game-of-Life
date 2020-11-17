@@ -63,5 +63,5 @@ class Cell {
 
   void flipState() {
     state = !state;
-  }
+  } 
 }

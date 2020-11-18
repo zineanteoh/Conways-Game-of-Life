@@ -1,8 +1,10 @@
 # Conways-Game-of-Life
 Conway's Game of Life with Processing
 
-![Alt Text](https://i.imgur.com/y9eDowB.gif)
-![Alt Text](https://i.imgur.com/ByDOnoG.gif)
+<p float="left">
+  <img src="https://i.imgur.com/y9eDowB.gif" width="250" height="250"/>
+  <img src="https://i.imgur.com/ByDOnoG.gif" width="250" height="250"/>
+</p>
 
 # Instructions to play:
 

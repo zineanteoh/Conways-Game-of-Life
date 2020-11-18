@@ -1,7 +1,8 @@
 # Conways-Game-of-Life
 Conway's Game of Life with Processing
 
-![Alt Text](https://im2.ezgif.com/tmp/ezgif-2-b92b1bcbc4d2.gif)
+![Alt Text](https://i.imgur.com/y9eDowB.gif)
+![Alt Text](https://i.imgur.com/ByDOnoG.gif)
 
 # Instructions to play:
 

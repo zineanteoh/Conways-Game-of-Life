@@ -14,3 +14,6 @@ Conway's Game of Life with Processing
   Press UP to increase speed
 
   Press DOWN to decrease speed
+
+![Alt Text](https://im2.ezgif.com/tmp/ezgif-2-b92b1bcbc4d2.gif)
+
